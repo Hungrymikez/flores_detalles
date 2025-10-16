@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores y Detalles Sofi - Tu tienda de regalos especiales</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --accent-color: #ffd166;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+        
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+        }
+        
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+        }
+        
+        .modal-product-image {
+            max-height: 400px;
+            object-fit: contain;
+        }
+        
+        .breadcrumb-item a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        .filter-btn {
+            margin: 5px;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-weight: 600;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .out-of-stock {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            border-bottom-left-radius: 10px;
+        }
+        
+        .category-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 50px 0;
+            margin: 50px 0;
+        }
+        
+        .category-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            background: white;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .search-container {
+            position: relative;
+            max-width: 400px;
+            margin: 0 auto 20px;
+        }
+        
+        .search-container input {
+            padding-right: 40px;
+            border-radius: 25px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, var(--dark-color), #2d2d44);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-gift me-2"></i>Flores y Detalles Sofi
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#inicio">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#catalogo">Catálogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#categorias">Categorías</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacto">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <nav aria-label="breadcrumb" class="container mt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#inicio">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Catálogo</li>
+        </ol>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">Regalos que enamoran</h1>
+            <p class="lead">Descubre nuestra colección de detalles únicos para cada ocasión especial</p>
+            <a href="#catalogo" class="btn btn-light btn-lg mt-3">Explorar Catálogo</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categorias" class="category-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Categorías</h2>
+            <div class="row g-4">
+                <div class="col-md-3" data-category="romanticos">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h5>Románticos</h5>
+                    </div>
+                </div>
+                <div class="col-md-3" data-category="bebes">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <h5>Bebés</h5>
+                    </div>
+                </div>
+                <div class="col-md-3" data-category="cumpleanos">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <h5>Cumpleaños</h5>
+                    </div>
+                </div>
+                <div class="col-md-3" data-category="especiales">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h5>Ocasiones Especiales</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalogo" class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">Nuestros Productos</h2>
+            <div class="d-flex gap-2">
+                <select class="form-select" style="width: auto;" id="sortSelect">
+                    <option value="price-asc">Ordenar por: Precio (Menor a Mayor)</option>
+                    <option value="price-desc">Precio (Mayor a Menor)</option>
+                    <option value="name">Nombre (A-Z)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="search-container mb-4">
+            <input type="text" class="form-control" placeholder="Buscar productos..." id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <div class="text-center mb-4">
+            <button class="filter-btn btn btn-outline-primary active" data-filter="all">Todos</button>
+            <button class="filter-btn btn btn-outline-primary" data-filter="romanticos">Románticos</button>
+            <button class="filter-btn btn btn-outline-primary" data-filter="bebes">Bebés</button>
+            <button class="filter-btn btn btn-outline-primary" data-filter="cumpleanos">Cumpleaños</button>
+            <button class="filter-btn btn btn-outline-primary" data-filter="especiales">Especiales</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="row g-4" id="productsGrid">
+            <!-- Product 1 -->
+            <div class="col-md-6 col-lg-4 col-xl-3" data-category="romanticos" data-name="Rosa Rojas Eternas" data-price="45">
+                <div class="card product-card">
+                    <div class="position-relative">
+                        <img src="https://placehold.co/300x200/ff6b6b/white?text=Rosa+Rojas" class="product-image" alt="Rosa Rojas">
+                        <span class="category-badge bg-danger text-white">Romántico</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Rosa Rojas Eternas</h5>
+                        <p class="card-text text-muted">Rosa rojas preservadas en caja de regalo elegante</p>
+                        <div class="mt-auto">
+                            <div class="price">$45.00</div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-outline-primary flex-grow-1" onclick="openProductModal('Rosa Rojas Eternas', '$45.00', 'Rosa rojas preservadas en caja de regalo elegante', 'romanticos')">
+                                    Ver detalles
+                                </button>
+                                <button class="whatsapp-btn" onclick="sendWhatsApp('Rosa Rojas Eternas', '$45.00')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-6 col-lg-4 col-xl-3" data-category="bebes" data-name="Canastilla Premium Bebé" data-price="85">
+                <div class="card product-card">
+                    <div class="position-relative">
+                        <img src="https://placehold.co/300x200/4ecdc4/white?text=Canastilla+Bebé" class="product-image" alt="Canastilla Bebé">
+                        <span class="category-badge bg-info text-white">Bebés</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Canastilla Premium Bebé</h5>
+                        <p class="card-text text-muted">Set completo de ropa y accesorios para recién nacido</p>
+                        <div class="mt-auto">
+                            <div class="price">$85.00</div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-outline-primary flex-grow-1" onclick="openProductModal('Canastilla Premium Bebé', '$85.00', 'Set completo de ropa y accesorios para recién nacido', 'bebes')">
+                                    Ver detalles
+                                </button>
+                                <button class="whatsapp-btn" onclick="sendWhatsApp('Canastilla Premium Bebé', '$85.00')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-6 col-lg-4 col-xl-3" data-category="cumpleanos" data-name="Torta Personalizada" data-price="60">
+                <div class="card product-card">
+                    <div class="position-relative">
+                        <img src="https://placehold.co/300x200/ffd166/white?text=Torta+Personalizada" class="product-image" alt="Torta Personalizada">
+                        <span class="category-badge bg-warning text-dark">Cumpleaños</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Torta Personalizada</h5>
+                        <p class="card-text text-muted">Torta de cumpleaños con diseño personalizado</p>
+                        <div class="mt-auto">
+                            <div class="price">$60.00</div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-outline-primary flex-grow-1" onclick="openProductModal('Torta Personalizada', '$60.00', 'Torta de cumpleaños con diseño personalizado', 'cumpleanos')">
+                                    Ver detalles
+                                </button>
+                                <button class="whatsapp-btn" onclick="sendWhatsApp('Torta Personalizada', '$60.00')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-md-6 col-lg-4 col-xl-3" data-category="especiales" data-name="Caja Sorpresa Premium" data-price="120">
+                <div class="card product-card">
+                    <div class="position-relative">
+                        <img src="https://placehold.co/300x200/1a1a2e/white?text=Caja+Sorpresa" class="product-image" alt="Caja Sorpresa">
+                        <span class="category-badge bg-dark text-white">Especial</span>
+                        <span class="out-of-stock">Agotado</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Caja Sorpresa Premium</h5>
+                        <p class="card-text text-muted">Caja con 10 regalos sorpresa diferentes</p>
+                        <div class="mt-auto">
+                            <div class="price">$120.00</div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-outline-secondary flex-grow-1" disabled>
+                                    Agotado
+                                </button>
+                                <button class="whatsapp-btn" onclick="sendWhatsApp('Caja Sorpresa Premium', '$120.00')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="col-md-6 col-lg-4 col-xl-3" data-category="romanticos" data-name="Set Romántico Cenar" data-price="75">
+                <div class="card product-card">
+                    <div class="position-relative">
+                        <img src="https://placehold.co/300x200/e91e63/white?text=Set+Romántico" class="product-image" alt="Set Romántico">
+                        <span class="category-badge bg-danger text-white">Romántico</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Set Romántico Cenar</h5>
+                        <p class="card-text text-muted">Velas, vino, chocolates y música romántica</p>
+                        <div class="mt-auto">
+                            <div class="price">$75.00</div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-outline-primary flex-grow-1" onclick="openProductModal('Set Romántico Cenar', '$75.00', 'Velas, vino, chocolates y música romántica', 'romanticos')">
+                                    Ver detalles
+                                </button>
+                                <button class="whatsapp-btn" onclick="sendWhatsApp('Set Romántico Cenar', '$75.00')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="col-md-6 col-lg-4 col-xl-3" data-category="bebes" data-name="Móvil Musical Bebé" data-price="35">
+                <div class="card product-card">
+                    <div class="position-relative">
+                        <img src="https://placehold.co/300x200/2196f3/white?text=Móvil+Bebé" class="product-image" alt="Móvil Bebé">
+                        <span class="category-badge bg-info text-white">Bebés</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Móvil Musical Bebé</h5>
+                        <p class="card-text text-muted">Móvil con música suave y luces tenues</p>
+                        <div class="mt-auto">
+                            <div class="price">$35.00</div>
+                            <div class="d-flex gap-2 mt-3">
+                                <button class="btn btn-outline-primary flex-grow-1" onclick="openProductModal('Móvil Musical Bebé', '$35.00', 'Móvil con música suave y luces tenues', 'bebes')">
+                                    Ver detalles
+                                </button>
+                                <button class="whatsapp-btn" onclick="sendWhatsApp('Móvil Musical Bebé', '$35.00')">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="container py-5 text-center">
+        <h2 class="mb-4">¿Tienes preguntas?</h2>
+        <p class="lead mb-4">Escríbenos por WhatsApp y con gusto te atenderemos</p>
+        <button class="whatsapp-btn btn-lg" onclick="sendWhatsApp('', '')">
+            <i class="fab fa-whatsapp me-2"></i>Contáctanos por WhatsApp
+        </button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h3>Regalos & Detalles</h3>
+                    <p>Tu tienda especializada en regalos únicos y personalizados para cada ocasión especial.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h3>Enlaces Rápidos</h3>
+                    <div class="footer-links">
+                        <a href="#inicio">Inicio</a>
+                        <a href="#catalogo">Catálogo</a>
+                        <a href="#categorias">Categorías</a>
+                        <a href="#contacto">Contacto</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h3>Contacto</h3>
+                    <div class="footer-links">
+                        <a href="tel:+1234567890"><i class="fas fa-phone me-2"></i>+1 (234) 567-890</a>
+                        <a href="mailto:info@regalosydetalles.com"><i class="fas fa-envelope me-2"></i>info@regalosydetalles.com</a>
+                        <a href="#"><i class="fas fa-map-marker-alt me-2"></i>Dirección de la tienda</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Regalos & Detalles. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Detalles del Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img id="modalProductImage" src="https://placehold.co/400x300/ff6b6b/white?text=Producto" class="img-fluid modal-product-image" alt="Producto">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 id="modalProductName">Nombre del Producto</h3>
+                            <div class="price mb-3" id="modalProductPrice">$0.00</div>
+                            <p id="modalProductDescription">Descripción del producto aquí.</p>
+                            <div class="mb-3">
+                                <strong>Categoría:</strong>
+                                <span id="modalProductCategory" class="badge bg-primary">Categoría</span>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="whatsapp-btn btn-lg" id="modalWhatsAppBtn">
+                                    <i class="fab fa-whatsapp me-2"></i>Consultar por WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/1234567890" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Product data for modal
+        const products = {
+            'Rosa Rojas Eternas': {
+                image: 'https://placehold.co/400x300/ff6b6b/white?text=Rosa+Rojas',
+                description: 'Rosa rojas preservadas en caja de regalo elegante, perfectas para declarar tu amor eterno.',
+                category: 'Romántico',
+                categoryClass: 'bg-danger'
+            },
+            'Canastilla Premium Bebé': {
+                image: 'https://placehold.co/400x300/4ecdc4/white?text=Canastilla+Bebé',
+                description: 'Set completo de ropa y accesorios para recién nacido, incluye body, gorro, manoplas y mantita.',
+                category: 'Bebés',
+                categoryClass: 'bg-info'
+            },
+            'Torta Personalizada': {
+                image: 'https://placehold.co/400x300/ffd166/white?text=Torta+Personalizada',
+                description: 'Torta de cumpleaños con diseño personalizado según tus preferencias, hecha con ingredientes premium.',
+                category: 'Cumpleaños',
+                categoryClass: 'bg-warning'
+            },
+            'Set Romántico Cenar': {
+                image: 'https://placehold.co/400x300/e91e63/white?text=Set+Romántico',
+                description: 'Set completo para una cena romántica: velas aromáticas, botella de vino, caja de chocolates finos y playlist romántica.',
+                category: 'Romántico',
+                categoryClass: 'bg-danger'
+            },
+            'Móvil Musical Bebé': {
+                image: 'https://placehold.co/400x300/2196f3/white?text=Móvil+Bebé',
+                description: 'Móvil musical con luces suaves y melodías relajantes para ayudar al bebé a dormir plácidamente.',
+                category: 'Bebés',
+                categoryClass: 'bg-info'
+            }
+        };
+
+        // Open product modal
+        function openProductModal(name, price, description, category) {
+            const product = products[name];
+            if (product) {
+                document.getElementById('modalProductName').textContent = name;
+                document.getElementById('modalProductPrice').textContent = price;
+                document.getElementById('modalProductDescription').textContent = product.description;
+                document.getElementById('modalProductImage').src = product.image;
+                document.getElementById('modalProductCategory').textContent = product.category;
+                document.getElementById('modalProductCategory').className = 'badge ' + product.categoryClass;
+                
+                // Set WhatsApp button
+                document.getElementById('modalWhatsAppBtn').onclick = function() {
+                    sendWhatsApp(name, price);
+                };
+                
+                const modal = new bootstrap.Modal(document.getElementById('productModal'));
+                modal.show();
+            }
+        }
+
+        // WhatsApp integration
+        function sendWhatsApp(productName, price) {
+            let message;
+            if (productName && price) {
+                message = `¡Hola! Estoy interesado en el producto "${productName}" con precio ${price}. ¿Podrían darme más información?`;
+            } else {
+                message = `¡Hola! Estoy interesado en sus productos. ¿Podrían darme más información sobre su catálogo?`;
+            }
+            const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Filter products by category
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Filter products
+                const products = document.querySelectorAll('#productsGrid .col-md-6');
+                products.forEach(product => {
+                    if (filter === 'all' || product.getAttribute('data-category') === filter) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Category cards click functionality
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const category = this.parentElement.getAttribute('data-category');
+                const filterBtn = document.querySelector(`.filter-btn[data-filter="${category}"]`);
+                if (filterBtn) {
+                    filterBtn.click();
+                    // Scroll to catalog section
+                    document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const products = document.querySelectorAll('#productsGrid .col-md-6');
+            
+            products.forEach(product => {
+                const productName = product.getAttribute('data-name').toLowerCase();
+                const productDescription = product.querySelector('.card-text').textContent.toLowerCase();
+                
+                if (productName.includes(searchTerm) || productDescription.includes(searchTerm)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+
+        // Sort functionality
+        document.getElementById('sortSelect').addEventListener('change', function() {
+            const sortBy = this.value;
+            const productsContainer = document.getElementById('productsGrid');
+            const products = Array.from(productsContainer.querySelectorAll('.col-md-6'));
+            
+            products.sort((a, b) => {
+                if (sortBy === 'price-asc') {
+                    return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+                } else if (sortBy === 'price-desc') {
+                    return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
+                } else if (sortBy === 'name') {
+                    return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
+                }
+                return 0;
+            });
+            
+            // Clear and re-append sorted products
+            productsContainer.innerHTML = '';
+            products.forEach(product => {
+                productsContainer.appendChild(product);
+            });
+        });
+    </script>
+</body>
+</html>
