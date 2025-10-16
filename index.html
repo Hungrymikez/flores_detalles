@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Flores y Detalles Sofi - Tu tienda de regalos especiales</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regalos y Detalles - Tu tienda de regalos especiales</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -29,41 +28,42 @@
         .hero-section {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 100px 0;
-            margin-bottom: 50px;
+            padding: 80px 0 60px;
+            margin-bottom: 40px;
         }
         
         .product-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
+            margin-bottom: 20px;
         }
         
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         .product-image {
-            height: 200px;
+            height: 180px;
             object-fit: cover;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
         }
         
         .category-badge {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            top: 8px;
+            left: 8px;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
             font-weight: 600;
         }
         
         .price {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary-color);
         }
@@ -73,9 +73,10 @@
             color: white;
             border: none;
             border-radius: 50px;
-            padding: 8px 16px;
+            padding: 6px 12px;
             font-weight: 600;
             transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
         
         .whatsapp-btn:hover {
@@ -85,17 +86,17 @@
         
         .floating-whatsapp {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 15px;
+            right: 15px;
             background-color: #25D366;
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
             z-index: 1000;
             text-decoration: none;
@@ -107,8 +108,9 @@
         }
         
         .modal-product-image {
-            max-height: 400px;
+            max-height: 300px;
             object-fit: contain;
+            width: 100%;
         }
         
         .breadcrumb-item a {
@@ -117,10 +119,11 @@
         }
         
         .filter-btn {
-            margin: 5px;
-            border-radius: 20px;
-            padding: 8px 16px;
+            margin: 4px 2px;
+            border-radius: 15px;
+            padding: 6px 12px;
             font-weight: 600;
+            font-size: 0.85rem;
         }
         
         .filter-btn.active {
@@ -134,74 +137,79 @@
             right: 0;
             background-color: #dc3545;
             color: white;
-            padding: 5px 10px;
-            font-size: 0.8rem;
-            border-bottom-left-radius: 10px;
+            padding: 4px 8px;
+            font-size: 0.7rem;
+            border-bottom-left-radius: 8px;
         }
         
         .category-section {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 50px 0;
-            margin: 50px 0;
+            padding: 40px 0;
+            margin: 40px 0;
         }
         
         .category-card {
             text-align: center;
-            padding: 30px 20px;
-            border-radius: 15px;
+            padding: 20px 15px;
+            border-radius: 12px;
             transition: transform 0.3s ease;
             background: white;
             cursor: pointer;
+            margin-bottom: 15px;
         }
         
         .category-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
         
         .category-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 10px;
             color: var(--primary-color);
         }
         
         .search-container {
             position: relative;
-            max-width: 400px;
-            margin: 0 auto 20px;
+            max-width: 100%;
+            margin: 0 auto 15px;
         }
         
         .search-container input {
-            padding-right: 40px;
-            border-radius: 25px;
+            padding-right: 35px;
+            border-radius: 20px;
+            font-size: 0.95rem;
         }
         
         .search-icon {
             position: absolute;
-            right: 15px;
+            right: 12px;
             top: 50%;
             transform: translateY(-50%);
             color: #6c757d;
+            font-size: 0.9rem;
         }
         
         footer {
             background: linear-gradient(135deg, var(--dark-color), #2d2d44);
             color: white;
-            padding: 60px 0 30px;
-            margin-top: 80px;
+            padding: 40px 0 20px;
+            margin-top: 60px;
         }
         
         .footer-section h3 {
             color: var(--accent-color);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 600;
+            font-size: 1.2rem;
         }
         
         .footer-links a {
             color: #ddd;
             text-decoration: none;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             transition: color 0.3s ease;
+            font-size: 0.9rem;
         }
         
         .footer-links a:hover {
@@ -210,28 +218,177 @@
         
         .social-icons a {
             display: inline-block;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 8px;
             text-align: center;
-            line-height: 40px;
+            line-height: 35px;
             color: white;
             transition: all 0.3s ease;
+            font-size: 0.8rem;
         }
         
         .social-icons a:hover {
             background: var(--primary-color);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
         
         .copyright {
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-            margin-top: 40px;
+            padding-top: 15px;
+            margin-top: 30px;
             text-align: center;
             color: #aaa;
+            font-size: 0.85rem;
+        }
+        
+        /* Extra small devices (portrait phones, less than 576px) */
+        @media (max-width: 575.98px) {
+            .hero-section {
+                padding: 60px 0 40px;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section .lead {
+                font-size: 1rem;
+            }
+            
+            .hero-section .btn {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+            
+            .category-card {
+                padding: 15px 10px;
+            }
+            
+            .category-icon {
+                font-size: 1.8rem;
+            }
+            
+            .filter-btn {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+                margin: 3px 1px;
+            }
+            
+            .product-image {
+                height: 160px;
+            }
+            
+            .card-title {
+                font-size: 1rem;
+            }
+            
+            .card-text {
+                font-size: 0.85rem;
+            }
+            
+            .price {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+            
+            footer .col-md-4 {
+                margin-bottom: 20px;
+            }
+            
+            .floating-whatsapp {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+                bottom: 12px;
+                right: 12px;
+            }
+        }
+        
+        /* Small devices (landscape phones, less than 768px) */
+        @media (max-width: 767.98px) {
+            .navbar-brand span {
+                display: none;
+            }
+            
+            .navbar-brand i {
+                margin-right: 0;
+            }
+            
+            .breadcrumb {
+                font-size: 0.85rem;
+            }
+            
+            .sort-select {
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* Medium devices (tablets, less than 992px) */
+        @media (max-width: 991.98px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .category-section {
+                padding: 35px 0;
+            }
+        }
+        
+        /* Ensure proper spacing on very small screens */
+        @media (max-width: 400px) {
+            .container {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-section .lead {
+                font-size: 0.9rem;
+            }
+            
+            .category-card h5 {
+                font-size: 0.9rem;
+            }
+            
+            .card-title {
+                font-size: 0.95rem;
+            }
+            
+            .price {
+                font-size: 0.95rem;
+            }
+            
+            .whatsapp-btn {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+            
+            .btn-outline-primary {
+                font-size: 0.8rem;
+                padding: 5px 10px;
+            }
+            
+            .modal-title {
+                font-size: 1.1rem;
+            }
+            
+            .modal-body h3 {
+                font-size: 1.2rem;
+            }
+            
+            .modal-body .price {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -241,7 +398,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="#">
-                    <i class="fas fa-gift me-2"></i>Flores y Detalles Sofi
+                    <i class="fas fa-gift me-2"></i><span>Regalos & Detalles</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -267,8 +424,8 @@
     </header>
 
     <!-- Breadcrumbs -->
-    <nav aria-label="breadcrumb" class="container mt-3">
-        <ol class="breadcrumb">
+    <nav aria-label="breadcrumb" class="container mt-2">
+        <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item"><a href="#inicio">Inicio</a></li>
             <li class="breadcrumb-item active" aria-current="page">Catálogo</li>
         </ol>
@@ -277,18 +434,18 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero-section">
         <div class="container text-center">
-            <h1 class="display-4 fw-bold">Regalos que enamoran</h1>
+            <h1 class="display-5 fw-bold">Regalos que enamoran</h1>
             <p class="lead">Descubre nuestra colección de detalles únicos para cada ocasión especial</p>
-            <a href="#catalogo" class="btn btn-light btn-lg mt-3">Explorar Catálogo</a>
+            <a href="#catalogo" class="btn btn-light btn-lg mt-2">Explorar Catálogo</a>
         </div>
     </section>
 
     <!-- Categories Section -->
     <section id="categorias" class="category-section">
         <div class="container">
-            <h2 class="text-center mb-5">Categorías</h2>
-            <div class="row g-4">
-                <div class="col-md-3" data-category="romanticos">
+            <h2 class="text-center mb-4">Categorías</h2>
+            <div class="row g-3">
+                <div class="col-6 col-md-3" data-category="romanticos">
                     <div class="category-card">
                         <div class="category-icon">
                             <i class="fas fa-heart"></i>
@@ -296,7 +453,7 @@
                         <h5>Románticos</h5>
                     </div>
                 </div>
-                <div class="col-md-3" data-category="bebes">
+                <div class="col-6 col-md-3" data-category="bebes">
                     <div class="category-card">
                         <div class="category-icon">
                             <i class="fas fa-baby"></i>
@@ -304,7 +461,7 @@
                         <h5>Bebés</h5>
                     </div>
                 </div>
-                <div class="col-md-3" data-category="cumpleanos">
+                <div class="col-6 col-md-3" data-category="cumpleanos">
                     <div class="category-card">
                         <div class="category-icon">
                             <i class="fas fa-birthday-cake"></i>
@@ -312,7 +469,7 @@
                         <h5>Cumpleaños</h5>
                     </div>
                 </div>
-                <div class="col-md-3" data-category="especiales">
+                <div class="col-6 col-md-3" data-category="especiales">
                     <div class="category-card">
                         <div class="category-icon">
                             <i class="fas fa-star"></i>
@@ -325,12 +482,12 @@
     </section>
 
     <!-- Catalog Section -->
-    <section id="catalogo" class="container py-5">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="mb-0">Nuestros Productos</h2>
+    <section id="catalogo" class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="mb-0 fs-4">Nuestros Productos</h2>
             <div class="d-flex gap-2">
-                <select class="form-select" style="width: auto;" id="sortSelect">
-                    <option value="price-asc">Ordenar por: Precio (Menor a Mayor)</option>
+                <select class="form-select form-select-sm" id="sortSelect">
+                    <option value="price-asc">Precio (Menor a Mayor)</option>
                     <option value="price-desc">Precio (Mayor a Menor)</option>
                     <option value="name">Nombre (A-Z)</option>
                 </select>
@@ -338,12 +495,12 @@
         </div>
 
         <!-- Search and Filters -->
-        <div class="search-container mb-4">
-            <input type="text" class="form-control" placeholder="Buscar productos..." id="searchInput">
+        <div class="search-container mb-3">
+            <input type="text" class="form-control form-control-sm" placeholder="Buscar productos..." id="searchInput">
             <i class="fas fa-search search-icon"></i>
         </div>
 
-        <div class="text-center mb-4">
+        <div class="text-center mb-3">
             <button class="filter-btn btn btn-outline-primary active" data-filter="all">Todos</button>
             <button class="filter-btn btn btn-outline-primary" data-filter="romanticos">Románticos</button>
             <button class="filter-btn btn btn-outline-primary" data-filter="bebes">Bebés</button>
@@ -352,9 +509,9 @@
         </div>
 
         <!-- Products Grid -->
-        <div class="row g-4" id="productsGrid">
+        <div class="row g-3" id="productsGrid">
             <!-- Product 1 -->
-            <div class="col-md-6 col-lg-4 col-xl-3" data-category="romanticos" data-name="Rosa Rojas Eternas" data-price="45">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" data-category="romanticos" data-name="Rosa Rojas Eternas" data-price="45">
                 <div class="card product-card">
                     <div class="position-relative">
                         <img src="https://placehold.co/300x200/ff6b6b/white?text=Rosa+Rojas" class="product-image" alt="Rosa Rojas">
@@ -365,7 +522,7 @@
                         <p class="card-text text-muted">Rosa rojas preservadas en caja de regalo elegante</p>
                         <div class="mt-auto">
                             <div class="price">$45.00</div>
-                            <div class="d-flex gap-2 mt-3">
+                            <div class="d-flex gap-2 mt-2">
                                 <button class="btn btn-outline-primary flex-grow-1" onclick="openProductModal('Rosa Rojas Eternas', '$45.00', 'Rosa rojas preservadas en caja de regalo elegante', 'romanticos')">
                                     Ver detalles
                                 </button>
@@ -379,7 +536,7 @@
             </div>
 
             <!-- Product 2 -->
-            <div class="col-md-6 col-lg-4 col-xl-3" data-category="bebes" data-name="Canastilla Premium Bebé" data-price="85">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" data-category="bebes" data-name="Canastilla Premium Bebé" data-price="85">
                 <div class="card product-card">
                     <div class="position-relative">
                         <img src="https://placehold.co/300x200/4ecdc4/white?text=Canastilla+Bebé" class="product-image" alt="Canastilla Bebé">
@@ -390,7 +547,7 @@
                         <p class="card-text text-muted">Set completo de ropa y accesorios para recién nacido</p>
                         <div class="mt-auto">
                             <div class="price">$85.00</div>
-                            <div class="d-flex gap-2 mt-3">
+                            <div class="d-flex gap-2 mt-2">
                                 <button class="btn btn-outline-primary flex-grow-1" onclick="openProductModal('Canastilla Premium Bebé', '$85.00', 'Set completo de ropa y accesorios para recién nacido', 'bebes')">
                                     Ver detalles
                                 </button>
@@ -404,7 +561,7 @@
             </div>
 
             <!-- Product 3 -->
-            <div class="col-md-6 col-lg-4 col-xl-3" data-category="cumpleanos" data-name="Torta Personalizada" data-price="60">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" data-category="cumpleanos" data-name="Torta Personalizada" data-price="60">
                 <div class="card product-card">
                     <div class="position-relative">
                         <img src="https://placehold.co/300x200/ffd166/white?text=Torta+Personalizada" class="product-image" alt="Torta Personalizada">
@@ -415,7 +572,7 @@
                         <p class="card-text text-muted">Torta de cumpleaños con diseño personalizado</p>
                         <div class="mt-auto">
                             <div class="price">$60.00</div>
-                            <div class="d-flex gap-2 mt-3">
+                            <div class="d-flex gap-2 mt-2">
                                 <button class="btn btn-outline-primary flex-grow-1" onclick="openProductModal('Torta Personalizada', '$60.00', 'Torta de cumpleaños con diseño personalizado', 'cumpleanos')">
                                     Ver detalles
                                 </button>
@@ -429,7 +586,7 @@
             </div>
 
             <!-- Product 4 -->
-            <div class="col-md-6 col-lg-4 col-xl-3" data-category="especiales" data-name="Caja Sorpresa Premium" data-price="120">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" data-category="especiales" data-name="Caja Sorpresa Premium" data-price="120">
                 <div class="card product-card">
                     <div class="position-relative">
                         <img src="https://placehold.co/300x200/1a1a2e/white?text=Caja+Sorpresa" class="product-image" alt="Caja Sorpresa">
@@ -441,7 +598,7 @@
                         <p class="card-text text-muted">Caja con 10 regalos sorpresa diferentes</p>
                         <div class="mt-auto">
                             <div class="price">$120.00</div>
-                            <div class="d-flex gap-2 mt-3">
+                            <div class="d-flex gap-2 mt-2">
                                 <button class="btn btn-outline-secondary flex-grow-1" disabled>
                                     Agotado
                                 </button>
@@ -455,7 +612,7 @@
             </div>
 
             <!-- Product 5 -->
-            <div class="col-md-6 col-lg-4 col-xl-3" data-category="romanticos" data-name="Set Romántico Cenar" data-price="75">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" data-category="romanticos" data-name="Set Romántico Cenar" data-price="75">
                 <div class="card product-card">
                     <div class="position-relative">
                         <img src="https://placehold.co/300x200/e91e63/white?text=Set+Romántico" class="product-image" alt="Set Romántico">
@@ -466,7 +623,7 @@
                         <p class="card-text text-muted">Velas, vino, chocolates y música romántica</p>
                         <div class="mt-auto">
                             <div class="price">$75.00</div>
-                            <div class="d-flex gap-2 mt-3">
+                            <div class="d-flex gap-2 mt-2">
                                 <button class="btn btn-outline-primary flex-grow-1" onclick="openProductModal('Set Romántico Cenar', '$75.00', 'Velas, vino, chocolates y música romántica', 'romanticos')">
                                     Ver detalles
                                 </button>
@@ -480,7 +637,7 @@
             </div>
 
             <!-- Product 6 -->
-            <div class="col-md-6 col-lg-4 col-xl-3" data-category="bebes" data-name="Móvil Musical Bebé" data-price="35">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3" data-category="bebes" data-name="Móvil Musical Bebé" data-price="35">
                 <div class="card product-card">
                     <div class="position-relative">
                         <img src="https://placehold.co/300x200/2196f3/white?text=Móvil+Bebé" class="product-image" alt="Móvil Bebé">
@@ -491,7 +648,7 @@
                         <p class="card-text text-muted">Móvil con música suave y luces tenues</p>
                         <div class="mt-auto">
                             <div class="price">$35.00</div>
-                            <div class="d-flex gap-2 mt-3">
+                            <div class="d-flex gap-2 mt-2">
                                 <button class="btn btn-outline-primary flex-grow-1" onclick="openProductModal('Móvil Musical Bebé', '$35.00', 'Móvil con música suave y luces tenues', 'bebes')">
                                     Ver detalles
                                 </button>
@@ -507,9 +664,9 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="container py-5 text-center">
-        <h2 class="mb-4">¿Tienes preguntas?</h2>
-        <p class="lead mb-4">Escríbenos por WhatsApp y con gusto te atenderemos</p>
+    <section id="contacto" class="container py-4 text-center">
+        <h2 class="mb-3 fs-4">¿Tienes preguntas?</h2>
+        <p class="lead mb-3">Escríbenos por WhatsApp y con gusto te atenderemos</p>
         <button class="whatsapp-btn btn-lg" onclick="sendWhatsApp('', '')">
             <i class="fab fa-whatsapp me-2"></i>Contáctanos por WhatsApp
         </button>
@@ -519,16 +676,16 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-4">
+                <div class="col-12 col-md-4 mb-4">
                     <h3>Regalos & Detalles</h3>
-                    <p>Tu tienda especializada en regalos únicos y personalizados para cada ocasión especial.</p>
-                    <div class="social-icons mt-3">
+                    <p class="mb-2">Tu tienda especializada en regalos únicos y personalizados para cada ocasión especial.</p>
+                    <div class="social-icons mt-2">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="col-12 col-md-4 mb-4">
                     <h3>Enlaces Rápidos</h3>
                     <div class="footer-links">
                         <a href="#inicio">Inicio</a>
@@ -537,7 +694,7 @@
                         <a href="#contacto">Contacto</a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="col-12 col-md-4 mb-4">
                     <h3>Contacto</h3>
                     <div class="footer-links">
                         <a href="tel:+1234567890"><i class="fas fa-phone me-2"></i>+1 (234) 567-890</a>
@@ -562,7 +719,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-3 mb-md-0">
                             <img id="modalProductImage" src="https://placehold.co/400x300/ff6b6b/white?text=Producto" class="img-fluid modal-product-image" alt="Producto">
                         </div>
                         <div class="col-md-6">
@@ -586,7 +743,7 @@
     </div>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/1234567890" class="floating-whatsapp" target="_blank">
+    <a href="https://wa.me/+573187552773" class="floating-whatsapp" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -655,7 +812,7 @@
             } else {
                 message = `¡Hola! Estoy interesado en sus productos. ¿Podrían darme más información sobre su catálogo?`;
             }
-            const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+            const whatsappUrl = `https://wa.me/+573187552773?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         }
 
@@ -671,7 +828,7 @@
                 this.classList.add('active');
                 
                 // Filter products
-                const products = document.querySelectorAll('#productsGrid .col-md-6');
+                const products = document.querySelectorAll('#productsGrid .col-12');
                 products.forEach(product => {
                     if (filter === 'all' || product.getAttribute('data-category') === filter) {
                         product.style.display = 'block';
@@ -698,7 +855,7 @@
         // Search functionality
         document.getElementById('searchInput').addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
-            const products = document.querySelectorAll('#productsGrid .col-md-6');
+            const products = document.querySelectorAll('#productsGrid .col-12');
             
             products.forEach(product => {
                 const productName = product.getAttribute('data-name').toLowerCase();
@@ -716,7 +873,7 @@
         document.getElementById('sortSelect').addEventListener('change', function() {
             const sortBy = this.value;
             const productsContainer = document.getElementById('productsGrid');
-            const products = Array.from(productsContainer.querySelectorAll('.col-md-6'));
+            const products = Array.from(productsContainer.querySelectorAll('.col-12'));
             
             products.sort((a, b) => {
                 if (sortBy === 'price-asc') {
